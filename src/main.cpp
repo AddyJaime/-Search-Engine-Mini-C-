@@ -8,15 +8,44 @@ using namespace  std;
 
 string getSearchQuery()
 {
-  cout << " 🔍 Search Engine Mini\n";
+  cout << " Search Engine Mini\n";
   cout << "-----------------------------\n";
- cout << "Type a word to Search: ";
+ cout << "🔍 Type a word to Search: ";
 
   string query;
   getline(cin, query);
   return query;
 }
+
+bool userWantsToExit(string input)
+{
+  
+  transform(input.begin(), input.end(), input.begin(), ::tolower);
+  // devuelve true si INPUT es igual a EXIT
+  return input == "exit";
+
+}
+
 int main()
 {
- string query = getSearchQuery();
+
+bool  is_loop_active = true;
+
+  while (is_loop_active)
+  {
+    string query = getSearchQuery();
+
+    // si userWantsToExit devuelve true sal del programa 
+    if (userWantsToExit(query))
+    {
+      cout << "👋🏻 Exiting Search Engine Mini... \n";
+      is_loop_active = false;
+    }
+
+  }
+
+  
+
+  
+return 0;
 }
