@@ -22,9 +22,21 @@ bool userWantsToExit(string input)
   
   transform(input.begin(), input.end(), input.begin(), ::tolower);
   // devuelve true si INPUT es igual a EXIT
-  return input == "exit";
+ return input == "exit";
 
 }
+
+void userWantsToGoToHelp()
+{
+
+     cout << "----------------------\n";
+    cout << " Available commands: \n";
+    cout << ":Help -> show this help \n";
+    cout << ":Exit -> exit program \n";
+    cout << "-------------------------\n";
+
+}
+
 
 int main()
 {
@@ -34,14 +46,15 @@ bool  is_loop_active = true;
   while (is_loop_active)
   {
     string query = getSearchQuery();
+    userWantsToGoToHelp();
 
     // si userWantsToExit devuelve true sal del programa 
     if (userWantsToExit(query))
     {
       cout << "👋🏻 Exiting Search Engine Mini... \n";
       is_loop_active = false;
-    }
-
+      
+    } 
   }
 
   
